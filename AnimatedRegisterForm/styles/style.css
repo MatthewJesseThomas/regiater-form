@@ -56,4 +56,46 @@ form h2{
     color: #999;
     text-transform: uppercase;
 }
-.inputBox inpu
+.inputBox label span{
+    position: relative;
+    display: inline-flex;
+    letter-spacing: 0.05em;
+    transition: 0.2s ease-in-out;
+}
+.inputBox input:focus ~ label span,
+.inputBox input:valid ~ label span{
+    color: var(--clr);
+    letter-spacing: 0.15em;
+    transform: translateY(-25px);
+}
+.inputBox input:focus,
+.inputBox input:valid{
+    border-bottom: 2px solid var(--clr);
+}
+.inputBox input[type="submit"]{
+    background: var(--clr);
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    color: #1c2630;
+    font-weight: 600;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.inputBox input[type="submit"]:hover{
+    letter-spacing: 0.35em;
+    scale: 1.05;
+}
+form p{
+    color: #fff;
+    font-size: 0.9em;
+    margin-bottom: 40px;
+}
+form p a{
+    color: var(--clr);
+    font-weight: 600;
+    text-decoration: none;
+}

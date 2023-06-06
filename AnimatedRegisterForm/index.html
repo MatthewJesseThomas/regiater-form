@@ -8,7 +8,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form>
+    <form id="registerForm">
         <h2>New Account</h2>
         <div class="inputBox">
             <input type="text" required>
@@ -20,17 +20,45 @@
         </div>
         <div class="inputBox">
             <input type="password" required>
-            <label>Create Password</label>
+            <label>Create &nbsp; Password</label>
         </div>
         <div class="inputBox">
             <input type="password" required>
-            <label>Confirm Password</label>
+            <label>Confirm &nbsp; Password</label>
         </div>
         <div class="inputBox">
             <input type="submit" value="Create">
         </div>
         <p>Already Have an Account!!! <a href="./pages/login.html">Login</a></p>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const labels = document.querySelectorAll('label');
+            labels.forEach((label) => {
+                label.innerHTML = label.innerText
+                    .split('')
+                    .map((letter, i) => `<span style="transition-delay: ${i * 50}ms">${letter}</span>`)
+                    .join('');
+            });
+            
+            const form = document.getElementById('registerForm');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const inputs = form.querySelectorAll('input');
+                const values = Array.from(inputs).map((input) => input.value);
+                console.log(values);
+                
+                Swal.fire({
+                    title: 'Congrats',
+                    text: 'Data Successfully Logged',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    </script>
+    <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
 </html>
+
